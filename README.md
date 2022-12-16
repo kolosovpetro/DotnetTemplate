@@ -8,12 +8,34 @@ This is a template for creating .NET projects with compile-time code style check
 and Azure pipelines.
 Also, includes SonarCloud integration.
 
+## How to use
+
+- Create a repository from this template
+- Rename existing project or create new with `Microsoft.CodeAnalysis.NetAnalyzers` nuget package installed
+- Add required property group in project file
+
 ## Nuget packages
 
+### Compile time code style checking
+
 - `Microsoft.CodeAnalysis.NetAnalyzers`
+
+### Unit tests project
+
 - `coverlet.msbuild`
 - `coverlet.collector`
 - `FluentAssertions`
+
+## Required property groups in project file
+
+```xml
+
+<PropertyGroup>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisMode>Recommended</AnalysisMode>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+</PropertyGroup>
+```
 
 ## Commands
 

@@ -22,25 +22,25 @@ jobs:
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     
     steps:
-      - name: 📝 Fetch Sources 📝
+      - name: Fetch Sources
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: ☕ Set up JDK 11 ☕
+      - name: Set up JDK 11
         uses: actions/setup-java@v3
         with:
           distribution: 'corretto'
           java-version: '11'
 
-      - name: 📝 Cache SonarCloud packages 📝
+      - name: Cache SonarCloud packages
         uses: actions/cache@v3
         with:
           path: ~/sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
-      - name: 📝 Cache SonarCloud scanner 📝
+      - name: Cache SonarCloud scanner
         id: cache-sonar-scanner
         uses: actions/cache@v3
         with:
@@ -48,14 +48,14 @@ jobs:
           key: ${{ runner.os }}-sonar-scanner
           restore-keys: ${{ runner.os }}-sonar-scanner
 
-      - name: ⚙ Install SonarCloud scanner ⚙
+      - name: Install SonarCloud scanner
         if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
         run: |
           mkdir -p ./.sonar/scanner
           chmod a+rwx ./.sonar/scanner
           dotnet tool update dotnet-sonarscanner --tool-path ./.sonar/scanner
 
-      - name: 🔍 Analyze project 🔍
+      - name: Analyze project
         shell: bash
         run: |
           chmod 777 scripts/run-sonarcloud-dotnet.sh
