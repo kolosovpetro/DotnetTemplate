@@ -23,12 +23,9 @@ jobs:
     
     steps:
       - name: 📝 Fetch Sources 📝
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
-
-      - name: 💡 Perform Common Steps 💡
-        uses: ./.github/workflows/perform-common-steps
 
       - name: ☕ Set up JDK 11 ☕
         uses: actions/setup-java@v1
