@@ -1,6 +1,10 @@
 # .NET project template
 
+[![Run Build and Test](https://github.com/kolosovpetro/DotnetTemplate/actions/workflows/run-build-and-test.yml/badge.svg)](https://github.com/kolosovpetro/DotnetTemplate/actions/workflows/run-build-and-test.yml)
+
+
 This is a template for creating .NET projects with compile-time code style checking, CI/CD workflows for Github Actions and Azure pipelines.
+Also, includes SonarCloud integration.
 
 ## Nuget packages
 
