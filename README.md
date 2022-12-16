@@ -11,9 +11,20 @@ Also, includes SonarCloud integration.
 ## Nuget packages
 
 - `Microsoft.CodeAnalysis.NetAnalyzers`
+- `coverlet.msbuild`
+- `coverlet.collector`
+- `FluentAssertions`
+
+## Commands
+
+- `dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput=../TestResults`
+- `dotnet tool install --global dotnet-reportgenerator-globaltool --version 4.8.6`
+- `reportgenerator "-reports:TestResults.opencover.xml" "-targetdir:coveragereport" -reporttypes:Html`
+- `dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput=TestResults -p:SkipAutoProps=true -p:Threshold=80`
 
 ## Sources
 
 - [Defining formatting rules in .NET with EditorConfig](https://blog.genezini.com/p/defining-formatting-rules-in-.net-with-editorconfig)
 - [Enforcing .NET code style rules at compile time](https://blog.genezini.com/p/enforcing-.net-code-style-rules-at-compile-time)
 - [Analyzing and enforcing .NET code coverage with coverlet](https://blog.genezini.com/p/analyzing-and-enforcing-.net-code-coverage-with-coverlet)
+- [SonarCloud via GitHub Actions](https://github.com/kolosovpetro/SonarCloudViaGithubActions)

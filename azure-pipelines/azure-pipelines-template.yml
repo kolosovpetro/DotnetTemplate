@@ -16,6 +16,13 @@ steps:
     inputs:
       command: 'build'
       arguments: '--configuration $(buildConfiguration) --no-restore'
+      
+  - task: DotNetCoreCLI@2
+    displayName: 'Run unit tests'
+    inputs:
+      command: 'test'
+      projects: 'DotnetTemplate.Tests/DotnetTemplate.Tests.csproj'
+      arguments: '--no-restore --collect:"XPlat Code Coverage" --settings azure-pipelines/coverage.runsettings'
 
 #  - task: DotNetCoreCLI@2
 #    displayName: 'Dotnet Publish'

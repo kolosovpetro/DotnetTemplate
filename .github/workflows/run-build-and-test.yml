@@ -29,6 +29,11 @@ jobs:
         run: |
           dotnet build --no-restore /p:ContinuousIntegrationBuild=true --configuration Release
           
+      - name: Run Unit Tests
+        working-directory: ./DotnetTemplate.Tests
+        run: |
+          dotnet test DotnetTemplate.Tests.csproj -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput=TestResults -p:SkipAutoProps=true -p:Threshold=80
+          
 #      - name: Run .NET Publish
 #        run: |
 #          dotnet publish "WebAppPath/WebAppProject.csproj" -r "linux-x64" -o "project-linux-build/src" --self-contained

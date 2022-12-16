@@ -32,6 +32,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{43A8
 		scripts\run-sonarcloud-dotnet.sh = scripts\run-sonarcloud-dotnet.sh
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetTemplate.Tests", "DotnetTemplate.Tests\DotnetTemplate.Tests.csproj", "{2481B08A-370C-4169-AC2A-F34A8447392F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{E1D690B6-A216-4055-B415-42DA130F1FAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1D690B6-A216-4055-B415-42DA130F1FAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1D690B6-A216-4055-B415-42DA130F1FAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2481B08A-370C-4169-AC2A-F34A8447392F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2481B08A-370C-4169-AC2A-F34A8447392F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2481B08A-370C-4169-AC2A-F34A8447392F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2481B08A-370C-4169-AC2A-F34A8447392F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4F59DF04-64F5-45F1-9767-F88CA7C1B8E5} = {6E8508F0-6477-4C41-B8A0-BC3F27B6ABF9}
