@@ -16,12 +16,18 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{4F59DF04-64F5-45F1-9767-F88CA7C1B8E5}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\run-build-and-test.yml = .github\workflows\run-build-and-test.yml
+		.github\workflows\sonar-scan.yml = .github\workflows\sonar-scan.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "azure-pipelines", "azure-pipelines", "{BA6EB862-5882-4962-A860-AB65D40C1776}"
 	ProjectSection(SolutionItems) = preProject
 		azure-pipelines\azure-pipelines.yml = azure-pipelines\azure-pipelines.yml
 		azure-pipelines\azure-pipelines-template.yml = azure-pipelines\azure-pipelines-template.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{43A8E7D8-A94D-4A9D-AE6A-BE409F9EE5BE}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\run-sonarcloud-dotnet.sh = scripts\run-sonarcloud-dotnet.sh
 	EndProjectSection
 EndProject
 Global
