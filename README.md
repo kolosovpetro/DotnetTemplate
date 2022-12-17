@@ -8,12 +8,6 @@ This is a template for creating .NET projects with compile-time code style check
 and Azure pipelines.
 Also, includes SonarCloud integration.
 
-## How to use
-
-- Create a repository from this template
-- Rename existing project or create new with `Microsoft.CodeAnalysis.NetAnalyzers` nuget package installed
-- Add required property group in project file
-
 ## Nuget packages
 
 ### Compile time code style checking
@@ -50,3 +44,5 @@ Also, includes SonarCloud integration.
 - [Enforcing .NET code style rules at compile time](https://blog.genezini.com/p/enforcing-.net-code-style-rules-at-compile-time)
 - [Analyzing and enforcing .NET code coverage with coverlet](https://blog.genezini.com/p/analyzing-and-enforcing-.net-code-coverage-with-coverlet)
 - [SonarCloud via GitHub Actions](https://github.com/kolosovpetro/SonarCloudViaGithubActions)
+- [How to build a .NET template and use it within Visual Studio. Part 1: Key concepts](https://www.mytechramblings.com/posts/create-dotnet-templates-for-visual-studio-part-1/)
+- [How to build a .NET template and use it within Visual Studio. Part 2: Creating a template package](https://www.mytechramblings.com/posts/create-dotnet-templates-for-visual-studio-part-2/)
