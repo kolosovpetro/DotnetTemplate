@@ -29,13 +29,10 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
-AuthWorkingDirectory/
-CngWorkingDirectory/
-OpenSslWorkingDirectory/
 
 # sonar scanner
-MangoAPI.Client/.scannerwork/*
-MangoAPI.Client/reports/*
+.scannerwork/*
+reports/*
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -359,3 +356,6 @@ healthchecksdb
 
 # code coverage temp
 coverage.opencover.xml
+
+# notepad++ backup
+*.bak
