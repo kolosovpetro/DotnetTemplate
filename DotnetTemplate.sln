@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "items", "items", "{0ADEAED5
 		README.md = README.md
 		.editorconfig = .editorconfig
 		DotnetTemplate.sln.DotSettings = DotnetTemplate.sln.DotSettings
+		nuget.config = nuget.config
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetTemplate", "DotnetTemplate\DotnetTemplate.csproj", "{E1D690B6-A216-4055-B415-42DA130F1FAB}"
