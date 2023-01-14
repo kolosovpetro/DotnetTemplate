@@ -23,6 +23,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "azure-pipelines", "azure-pi
 	ProjectSection(SolutionItems) = preProject
 		azure-pipelines\azure-pipelines.yml = azure-pipelines\azure-pipelines.yml
 		azure-pipelines\coverage.runsettings = azure-pipelines\coverage.runsettings
+		azure-pipelines\azure-pipelines-sonarcloud.yml = azure-pipelines\azure-pipelines-sonarcloud.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{43A8E7D8-A94D-4A9D-AE6A-BE409F9EE5BE}"
