@@ -1,18 +1,40 @@
-﻿name: Run Build and Test
+﻿name: Build Test & Drop artifacts
 
 on:
   push:
     branches:
       - master
+      - main
       - develop
+
   pull_request:
-    branches: [ develop ]
+    branches:
+      - master
+      - main
+      - develop
+
   workflow_dispatch:
 
 jobs:
-  build-and-test-dotnet:
-    name: Run Build and Test .NET
-    runs-on: ubuntu-latest
+  build-test-drop-artifacts:
+    name: Build Test & Drop artifacts
+    runs-on: ${{ matrix.environment }}
+    strategy:
+      matrix:
+        environment:
+          - ubuntu-latest
+    
+    env:
+      DOTNET_NOLOGO: 1
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+      NUGET_PACKAGES: ${{ github.workspace }}/.github/nuget-packages
+      ProjectPath: './DotnetTemplate/DotnetTemplate.csproj'
+      TestProjectPath: './DotnetTemplate.Tests/DotnetTemplate.Tests.csproj'
+      Configuration: 'Release'
+      Solution: 'DotnetTemplate.sln'
+      ArtifactName: 'drop'
+      ArtifactPath: 'publish'
+    
     steps:
       - name: Fetch Sources
         uses: actions/checkout@v3
@@ -22,24 +44,38 @@ jobs:
         with:
           dotnet-version: 6.0.x
 
-      - name: Restore Nuget Packages
+      - name: NuGet Cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.NUGET_PACKAGES }}
+          key: ${{ runner.os }}.nuget.${{ hashFiles('**/*.csproj') }}
+
+      - name: Nuget Restore
         run: dotnet restore
 
-      - name: Build .NET Solution
+      - name: Build Solution
         run: |
-          dotnet build --no-restore /p:ContinuousIntegrationBuild=true --configuration Release
-          
-      - name: Run Unit Tests
-        working-directory: ./DotnetTemplate.Tests
-        run: |
-          dotnet test DotnetTemplate.Tests.csproj -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput=TestResults -p:SkipAutoProps=true -p:Threshold=80
-          
-#      - name: Run .NET Publish
-#        run: |
-#          dotnet publish "WebAppPath/WebAppProject.csproj" -r "linux-x64" -o "project-linux-build/src" --self-contained
+          dotnet build $(Solution) --configuration $(Configuration) /p:ContinuousIntegrationBuild=true --no-restore
 
-#      - name: Drop Artifact
-#        uses: actions/upload-artifact@v3
-#        with:
-#          name: project-linux-build
-#          path: project-linux-build/src
+      - name: Run Unit Tests
+        run: |
+          dotnet test $(TestProjectPath) --configuration $(Configuration) --no-build
+        env:
+          CollectCoverage: true
+          CoverletOutputFormat: lcov
+          ThresholdStat: total
+          ThresholdType: Line
+          CoverletOutput: TestResults/
+          SkipAutoProps: true
+          Threshold: 80
+
+      - name: Run .NET Publish
+        run: |
+          dotnet publish $(ProjectPath) --configuration $(Configuration) --output $(ArtifactPath)
+      #          dotnet publish "WebAppPath/WebAppProject.csproj" -r "linux-x64" -o "project-linux-build/src" --self-contained
+
+      - name: Drop Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ env.ArtifactName }}
+          path: ${{ env.ArtifactPath }}
