@@ -2,29 +2,36 @@ trigger:
   branches:
     include:
       - develop
+      - master
 
 pr:
   branches:
     include:
       - develop
+      - master
 
 variables:
   - name: buildPlatform
     value: 'Any CPU'
   - name: buildConfiguration
     value: 'Release'
-#  - name: backendProjectPath
-#    value: 'MangoAPI.Presentation/MangoAPI.Presentation.csproj'
-#  - name: frontEndProjectPath
-#    value: 'MangoAPI.Client'
+  - name: testProjectPath
+    value: './DotnetTemplate.Tests/DotnetTemplate.Tests.csproj'
+  - name: projectPath
+    value: './DotnetTemplate/DotnetTemplate.csproj'
 
 stages:
   - stage: 'Build_Test'
     jobs:
       - job: "Build"
-        displayName: 'Build and Test'
+        displayName: 'Build Test & Drop artifacts'
         pool:
           vmImage: 'ubuntu-latest'
 
         steps:
-          - template: azure-pipelines-template.yml
+          - template: templates/dotnet-build-steps-template.yml
+            parameters:
+              buildConfiguration: $(buildConfiguration)
+              buildPlatform: $(buildPlatform)
+              testProjectPath: $(testProjectPath)
+              projectPath: $(projectPath)

@@ -22,9 +22,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "azure-pipelines", "azure-pipelines", "{BA6EB862-5882-4962-A860-AB65D40C1776}"
 	ProjectSection(SolutionItems) = preProject
 		azure-pipelines\azure-pipelines.yml = azure-pipelines\azure-pipelines.yml
-		azure-pipelines\azure-pipelines-template.yml = azure-pipelines\azure-pipelines-template.yml
-		azure-pipelines\azure-pipelines-sonarqube.yml = azure-pipelines\azure-pipelines-sonarqube.yml
 		azure-pipelines\coverage.runsettings = azure-pipelines\coverage.runsettings
+		azure-pipelines\azure-pipelines-sonarcloud.yml = azure-pipelines\azure-pipelines-sonarcloud.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{43A8E7D8-A94D-4A9D-AE6A-BE409F9EE5BE}"
@@ -33,6 +32,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{43A8
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetTemplate.Tests", "DotnetTemplate.Tests\DotnetTemplate.Tests.csproj", "{2481B08A-370C-4169-AC2A-F34A8447392F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{5283A3AD-3BB3-4184-BE9F-92104F832271}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines\templates\dotnet-build-steps-template.yml = azure-pipelines\templates\dotnet-build-steps-template.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,5 +55,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4F59DF04-64F5-45F1-9767-F88CA7C1B8E5} = {6E8508F0-6477-4C41-B8A0-BC3F27B6ABF9}
+		{5283A3AD-3BB3-4184-BE9F-92104F832271} = {BA6EB862-5882-4962-A860-AB65D40C1776}
 	EndGlobalSection
 EndGlobal
