@@ -15,6 +15,9 @@ on:
 
   workflow_dispatch:
 
+  schedule:
+    - cron: '0 0 * * 0'
+
 jobs:
   build-test-drop-artifacts:
     name: Build Test & Drop artifacts
