@@ -55,11 +55,11 @@ jobs:
 
       - name: Build Solution
         run: |
-          dotnet build $(Solution) --configuration $(Configuration) /p:ContinuousIntegrationBuild=true --no-restore
+          dotnet build ${{ env.Solution }} --configuration ${{ env.Configuration }} /p:ContinuousIntegrationBuild=true --no-restore
 
       - name: Run Unit Tests
         run: |
-          dotnet test $(TestProjectPath) --configuration $(Configuration) --no-build
+          dotnet test ${{ env.TestProjectPath }} --configuration ${{ env.Configuration }} --no-build
         env:
           CollectCoverage: true
           CoverletOutputFormat: lcov
@@ -71,7 +71,7 @@ jobs:
 
       - name: Run .NET Publish
         run: |
-          dotnet publish $(ProjectPath) --configuration $(Configuration) --output $(ArtifactPath)
+          dotnet publish ${{ env.ProjectPath }} --configuration ${{ env.Configuration }} --output ${{ env.ArtifactPath }}
       #          dotnet publish "WebAppPath/WebAppProject.csproj" -r "linux-x64" -o "project-linux-build/src" --self-contained
 
       - name: Drop Artifact
