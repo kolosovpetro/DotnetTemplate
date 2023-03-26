@@ -17,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\run-build-and-test.yml = .github\workflows\run-build-and-test.yml
 		.github\workflows\sonar-scan.yml = .github\workflows\sonar-scan.yml
+		.github\workflows\resharper-scan.yml = .github\workflows\resharper-scan.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "azure-pipelines", "azure-pipelines", "{BA6EB862-5882-4962-A860-AB65D40C1776}"
