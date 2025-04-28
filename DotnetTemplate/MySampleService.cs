@@ -1,4 +1,4 @@
-﻿namespace DotnetTemplate;
+namespace DotnetTemplate;
 
 public static class MySampleService
 {
