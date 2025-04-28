@@ -1,6 +1,6 @@
 # .NET project template
 
-This is a template for creating .NET projects with compile-time code style checking, CI/CD workflows for Github Actions
+This is a template for creating .NET projects with compile-time code style checking, CI/CD workflows for GitHub Actions
 and Azure pipelines.
 Also, includes SonarCloud integration.
 
